@@ -1,0 +1,145 @@
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+[[language]]
+name = "rust"
+scope = "source.rs"
+file-types = ["rs, cargo.toml"]
+auto-format = true
+language-servers = [ { name = "rust-analyzer"} ]
+
+
+[language-server.elixir-ls]
+command = "elixir-ls"
+[[language]]
+name = "elixir"
+scope = "source.ex"
+file-types = ["ex, hex"]
+auto-format = true
+language-servers = [ { name = "elixir-ls"} ]
+
+
+[language-server.gopls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/gopls"
+[language-server.gofmt]
+command = "gofmt"
+[[language]]
+name = "go"
+scope = "source.go"
+file-types = ["go, go.mod"]
+auto-format = true
+language-servers = [ { name = "gofmt", only-features = [ "format" ] }, "gopls" ]
+
+
+[language-server.zls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/zls"
+[[language]]
+name = "zig"
+scope = "source.zig"
+file-types = ["zig"]
+auto-format = true
+language-servers = [ { name = "zls"} ]
+
+
+[language-server.helm-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/helm_ls"
+[[language]]
+name = "helm"
+scope = "source.helm"
+file-types = ["yaml"]
+auto-format = true
+language-servers = [ { name = "helm-ls"} ]
+
+
+[language-server.terraform-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/terraform-ls"
+[[language]]
+name = "terraform"
+scope = "source.tf"
+file-types = ["tf", "tfvars"]
+auto-format = true
+language-servers = [ { name = "terraform-ls"} ]
+
+
+[language-server.clojure-lsp]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/clojure-lsp"
+[[language]]
+name = "clojure"
+scope = "source.clj"
+file-types = ["clj, cljs, edn"]
+auto-format = true
+language-servers = [ { name = "clojure-ls"} ]
+
+
+[language-server.ocaml-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/ocamllsp"
+[[language]]
+name = "ocaml"
+scope = "source.ocaml"
+file-types = ["ocaml"]
+auto-format = true
+language-servers = [ { name = "ocaml-ls"} ]
+
+
+[language-server.pyright]
+command = "pyright"
+[language-server.black]
+command = "black"
+[language-server.ruff-lsp]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/ruff-lsp"
+[[language]]
+name = "bash"
+auto-format = true
+scope = "source.py"
+file-types = ["py, pyproject.toml"]
+language-servers = [ { name = "black", only-features = [ "format" ] }, "pyright" ]
+
+
+[language-server.typescript-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/typescript-language-server"
+[[language]]
+name = "typescript"
+scope = "source.ts"
+file-types = ["ts, js"]
+auto-format = true
+language-servers = [ { name = "typescript-ls"} ]
+
+
+[language-server.bash-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/bash-language-server"
+[[language]]
+name = "bash"
+scope = "source.bash"
+file-types = ["sh"]
+shebangs = ["bash"]
+auto-format = true
+language-servers = [ { name = "bash-ls"} ]
+
+
+[language-server.dockerfile-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/docker-langserver"
+[[language]]
+name = "dockerfile"
+scope = "source.dockerfile"
+file-types = ["dockerfile", "Dockerfile"]
+auto-format = true
+language-servers = [ { name = "dockerfile-ls"} ]
+
+
+[language-server.json-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/vscode-json-language-server"
+[[language]]
+name = "json"
+scope = "source.json"
+file-types = ["json"]
+auto-format = true
+language-servers = [ { name = "json-ls"} ]
+
+
+[language-server.yaml-ls]
+command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/yaml-language-server"
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yaml"]
+auto-format = true
+language-servers = [ { name = "yaml-ls"} ]
