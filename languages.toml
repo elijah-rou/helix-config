@@ -1,5 +1,9 @@
 [language-server.rust-analyzer]
 command = "rust-analyzer"
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+[language-server.rust-analyzer.config.cargo]
+features = "all"
 [[language]]
 name = "rust"
 scope = "source.rs"
@@ -8,26 +12,44 @@ auto-format = true
 language-servers = [ { name = "rust-analyzer"} ]
 
 
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+[[language]]
+name = "sql"
+language-servers = [ "sql-language-server" ]
+
+
 [language-server.elixir-ls]
 command = "elixir-ls"
 [[language]]
 name = "elixir"
 scope = "source.ex"
-file-types = ["ex, hex"]
+file-types = ["ex", "hex"]
 auto-format = true
 language-servers = [ { name = "elixir-ls"} ]
 
 
+[language-server.gleam-lsp]
+command = "gleam"
+args = ["lsp"]
+[[language]]
+name = "gleam"
+scope = "source.gleam"
+file-types = ["gleam"]
+auto-format = true
+language-servers = [ { name = "gleam-ls"} ]
+
+
 [language-server.gopls]
 command = "gopls"
-[language-server.gofmt]
-command = "gofmt"
 [[language]]
 name = "go"
 scope = "source.go"
 file-types = ["go", { glob = "go.mod" }]
 auto-format = true
-language-servers = [ { name = "gofmt", only-features = [ "format" ] }, "gopls" ]
+formatter = { command = "goimports" }
+language-servers = [ "gopls" ]
 
 
 [language-server.zls]
@@ -50,15 +72,26 @@ auto-format = true
 language-servers = [ { name = "helm-ls"} ]
 
 
+[[grammar]]
+name = "terraform"
+source = {git = "https://github.com/tree-sitter-grammars/tree-sitter-hcl", rev="HEAD"}
 [language-server.terraform-ls]
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
 [[language]]
-name = "terraform"
+name = "hcl"
 scope = "source.tf"
 file-types = ["tf", "tfvars"]
 auto-format = true
 language-servers = [ { name = "terraform-ls"} ]
+language-id = "terraform"
+[[language]]
+name = "tfvars"
+scope = "source.tf"
+file-types = ["tf", "tfvars"]
+auto-format = true
+language-servers = [ { name = "terraform-ls"} ]
+language-id = "terraform-vars"
 
 
 [language-server.clojure-lsp]
@@ -68,19 +101,23 @@ name = "clojure"
 scope = "source.clj"
 file-types = ["clj", "cljs", "edn"]
 auto-format = true
+# formatter = { command = "cljfmt", args = ["fix"]}
 language-servers = [ { name = "clojure-ls"} ]
 
 
 [language-server.pyright]
 command = "basedpyright"
-[language-server.black]
-command = "black"
+[language-server.ruff]
+command = "ruff-lsp"
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
 [[language]]
-name = "bash"
+name = "python"
 auto-format = true
 scope = "source.py"
 file-types = ["py", {glob = "pyproject.toml"}]
-language-servers = [ { name = "black", only-features = [ "format" ] }, "pyright" ]
+formatter = { command = "black" }
+language-servers = [ "pyright", "ruff" ]
 
 
 [language-server.typescript-ls]
@@ -124,11 +161,41 @@ auto-format = true
 language-servers = [ { name = "json-ls"} ]
 
 
+[language-server.ocamllsp]
+command = "ocamllsp"
+[[language]]
+name = "ocaml"
+scope = "source.ocaml"
+file-types = ["ocaml"]
+auto-format = true
+language-servers = [ { name = "ocamllsp"} ]
+
+
 [language-server.yaml-ls]
 command = "yaml-language-server"
+[language-server.yaml-ls.config.yaml]
+format = { enable = true }
+validation = true
 [[language]]
 name = "yaml"
 scope = "source.yaml"
 file-types = ["yaml"]
 auto-format = true
 language-servers = [ { name = "yaml-ls"} ]
+
+
+[language-server.marksman]
+command = "marksman"
+[[language]]
+name = "markdown"
+scope = "text.md"
+file-types = ["md", "mdx"]
+auto-format = true
+language-servers = ["marksman"]
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[language-server.texlab.config.texlab.build]
+onSave = true
