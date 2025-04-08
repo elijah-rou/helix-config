@@ -6,8 +6,6 @@ command = "clippy"
 features = "all"
 [[language]]
 name = "rust"
-scope = "source.rs"
-file-types = ["rs", {glob = "cargo.toml"}]
 auto-format = true
 language-servers = [ { name = "rust-analyzer"} ]
 
@@ -24,8 +22,6 @@ language-servers = [ "sql-language-server" ]
 command = "elixir-ls"
 [[language]]
 name = "elixir"
-scope = "source.ex"
-file-types = ["ex", "hex"]
 auto-format = true
 language-servers = [ { name = "elixir-ls"} ]
 
@@ -35,8 +31,6 @@ command = "gleam"
 args = ["lsp"]
 [[language]]
 name = "gleam"
-scope = "source.gleam"
-file-types = ["gleam"]
 auto-format = true
 language-servers = [ { name = "gleam-ls"} ]
 
@@ -45,8 +39,6 @@ language-servers = [ { name = "gleam-ls"} ]
 command = "gopls"
 [[language]]
 name = "go"
-scope = "source.go"
-file-types = ["go", { glob = "go.mod" }]
 auto-format = true
 formatter = { command = "goimports" }
 language-servers = [ "gopls" ]
@@ -56,8 +48,6 @@ language-servers = [ "gopls" ]
 command = "zls"
 [[language]]
 name = "zig"
-scope = "source.zig"
-file-types = ["zig"]
 auto-format = true
 language-servers = [ { name = "zls"} ]
 
@@ -66,8 +56,6 @@ language-servers = [ { name = "zls"} ]
 command = "helm-ls"
 [[language]]
 name = "helm"
-scope = "source.helm"
-file-types = ["yaml", "yml"]
 auto-format = true
 language-servers = [ { name = "helm-ls"} ]
 
@@ -80,15 +68,11 @@ command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
 [[language]]
 name = "hcl"
-scope = "source.tf"
-file-types = ["tf", "tfvars"]
 auto-format = true
 language-servers = [ { name = "terraform-ls"} ]
 language-id = "terraform"
 [[language]]
 name = "tfvars"
-scope = "source.tf"
-file-types = ["tf", "tfvars"]
 auto-format = true
 language-servers = [ { name = "terraform-ls"} ]
 language-id = "terraform-vars"
@@ -98,8 +82,6 @@ language-id = "terraform-vars"
 command = "clojure-lsp"
 [[language]]
 name = "clojure"
-scope = "source.clj"
-file-types = ["clj", "cljs", "edn"]
 auto-format = true
 # formatter = { command = "cljfmt", args = ["fix"]}
 language-servers = [ { name = "clojure-ls"} ]
@@ -114,8 +96,6 @@ args = ["--ignore", "E501"]
 [[language]]
 name = "python"
 auto-format = true
-scope = "source.py"
-file-types = ["py", {glob = "pyproject.toml"}]
 formatter = { command = "black" }
 language-servers = [ "pyright", "ruff" ]
 
@@ -124,8 +104,6 @@ language-servers = [ "pyright", "ruff" ]
 command = "bintypescript-language-server"
 [[language]]
 name = "typescript"
-scope = "source.ts"
-file-types = ["ts, js"]
 auto-format = true
 language-servers = [ { name = "typescript-ls"} ]
 
@@ -134,8 +112,6 @@ language-servers = [ { name = "typescript-ls"} ]
 command = "bash-language-server"
 [[language]]
 name = "bash"
-scope = "source.bash"
-file-types = ["sh", "tftpl"]
 shebangs = ["bash"]
 auto-format = true
 language-servers = [ { name = "bash-ls"} ]
@@ -145,8 +121,6 @@ language-servers = [ { name = "bash-ls"} ]
 command = "dockerfile-language-server"
 [[language]]
 name = "dockerfile"
-scope = "source.dockerfile"
-file-types = ["dockerfile", {glob = "Dockerfile"}]
 auto-format = true
 language-servers = [ { name = "dockerfile-ls"} ]
 
@@ -155,8 +129,6 @@ language-servers = [ { name = "dockerfile-ls"} ]
 command = "vscode-json-language-server"
 [[language]]
 name = "json"
-scope = "source.json"
-file-types = ["json"]
 auto-format = true
 language-servers = [ { name = "json-ls"} ]
 
@@ -165,8 +137,6 @@ language-servers = [ { name = "json-ls"} ]
 command = "ocamllsp"
 [[language]]
 name = "ocaml"
-scope = "source.ocaml"
-file-types = ["ocaml"]
 auto-format = true
 language-servers = [ { name = "ocamllsp"} ]
 
@@ -178,8 +148,6 @@ format = { enable = true }
 validation = true
 [[language]]
 name = "yaml"
-scope = "source.yaml"
-file-types = ["yaml"]
 auto-format = true
 language-servers = [ { name = "yaml-ls"} ]
 
@@ -188,14 +156,14 @@ language-servers = [ { name = "yaml-ls"} ]
 command = "marksman"
 [[language]]
 name = "markdown"
-scope = "text.md"
-file-types = ["md", "mdx"]
 auto-format = true
 language-servers = ["marksman"]
+
 
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
+
 
 [language-server.texlab.config.texlab.build]
 onSave = true
