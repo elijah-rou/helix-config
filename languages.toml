@@ -3,7 +3,7 @@ command = "rust-analyzer"
 [[language]]
 name = "rust"
 scope = "source.rs"
-file-types = ["rs, cargo.toml"]
+file-types = ["rs", {glob = "cargo.toml"}]
 auto-format = true
 language-servers = [ { name = "rust-analyzer"} ]
 
@@ -19,19 +19,19 @@ language-servers = [ { name = "elixir-ls"} ]
 
 
 [language-server.gopls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/gopls"
+command = "gopls"
 [language-server.gofmt]
 command = "gofmt"
 [[language]]
 name = "go"
 scope = "source.go"
-file-types = ["go, go.mod"]
+file-types = ["go", { glob = "go.mod" }]
 auto-format = true
 language-servers = [ { name = "gofmt", only-features = [ "format" ] }, "gopls" ]
 
 
 [language-server.zls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/zls"
+command = "zls"
 [[language]]
 name = "zig"
 scope = "source.zig"
@@ -41,17 +41,18 @@ language-servers = [ { name = "zls"} ]
 
 
 [language-server.helm-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/helm_ls"
+command = "helm-ls"
 [[language]]
 name = "helm"
 scope = "source.helm"
-file-types = ["yaml"]
+file-types = ["yaml", "yml"]
 auto-format = true
 language-servers = [ { name = "helm-ls"} ]
 
 
 [language-server.terraform-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/terraform-ls"
+command = "terraform-ls"
+args = ["serve", "-log-file", "/dev/null"]
 [[language]]
 name = "terraform"
 scope = "source.tf"
@@ -61,41 +62,29 @@ language-servers = [ { name = "terraform-ls"} ]
 
 
 [language-server.clojure-lsp]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/clojure-lsp"
+command = "clojure-lsp"
 [[language]]
 name = "clojure"
 scope = "source.clj"
-file-types = ["clj, cljs, edn"]
+file-types = ["clj", "cljs", "edn"]
 auto-format = true
 language-servers = [ { name = "clojure-ls"} ]
 
 
-[language-server.ocaml-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/ocamllsp"
-[[language]]
-name = "ocaml"
-scope = "source.ocaml"
-file-types = ["ocaml"]
-auto-format = true
-language-servers = [ { name = "ocaml-ls"} ]
-
-
 [language-server.pyright]
-command = "pyright"
+command = "basedpyright"
 [language-server.black]
 command = "black"
-[language-server.ruff-lsp]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/ruff-lsp"
 [[language]]
 name = "bash"
 auto-format = true
 scope = "source.py"
-file-types = ["py, pyproject.toml"]
+file-types = ["py", {glob = "pyproject.toml"}]
 language-servers = [ { name = "black", only-features = [ "format" ] }, "pyright" ]
 
 
 [language-server.typescript-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/typescript-language-server"
+command = "bintypescript-language-server"
 [[language]]
 name = "typescript"
 scope = "source.ts"
@@ -105,28 +94,28 @@ language-servers = [ { name = "typescript-ls"} ]
 
 
 [language-server.bash-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/bash-language-server"
+command = "bash-language-server"
 [[language]]
 name = "bash"
 scope = "source.bash"
-file-types = ["sh"]
+file-types = ["sh", "tftpl"]
 shebangs = ["bash"]
 auto-format = true
 language-servers = [ { name = "bash-ls"} ]
 
 
 [language-server.dockerfile-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/docker-langserver"
+command = "dockerfile-language-server"
 [[language]]
 name = "dockerfile"
 scope = "source.dockerfile"
-file-types = ["dockerfile", "Dockerfile"]
+file-types = ["dockerfile", {glob = "Dockerfile"}]
 auto-format = true
 language-servers = [ { name = "dockerfile-ls"} ]
 
 
 [language-server.json-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/vscode-json-language-server"
+command = "vscode-json-language-server"
 [[language]]
 name = "json"
 scope = "source.json"
@@ -136,7 +125,7 @@ language-servers = [ { name = "json-ls"} ]
 
 
 [language-server.yaml-ls]
-command = "/System/Volumes/Data/Users/elijahrou/.local/share/nvim/mason/bin/yaml-language-server"
+command = "yaml-language-server"
 [[language]]
 name = "yaml"
 scope = "source.yaml"
